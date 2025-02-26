@@ -30,8 +30,9 @@
           },
           {
             "name": "lualatex",
-            "command": "lualatex",
+            "command": "texfot",
             "args": [
+              "lualatex",
               "-interaction=nonstopmode",
               "--shell-escape",
               "-synctex=1",
@@ -40,8 +41,9 @@
           },
           {
             "name": "lualatex-draft",
-            "command": "lualatex",
+            "command": "texfot",
             "args": [
+              "lualatex",
               "-interaction=nonstopmode",
               "--shell-escape",
               "-draftmode",
@@ -50,8 +52,9 @@
           },
           {
             "name": "pdflatex",
-            "command": "pdflatex",
+            "command": "texfot",
             "args": [
+              "pdflatex",
               "--interaction=nonstopmode",
               "--shell-escape",
               "-synctex=1",
@@ -60,8 +63,9 @@
           },
           {
             "name": "pdflatex-draft",
-            "command": "pdflatex",
+            "command": "texfot",
             "args": [
+              "pdflatex",
               "--interaction=nonstopmode",
               "--shell-escape",
               "-draftmode",
@@ -116,9 +120,6 @@
             ]
           }
         ],
-        "[latex]": {
-          "editor.defaultFormatter": "James-Yu.latex-workshop"
-        },
         "latex-workshop.latex.clean.fileTypes": [
           "*.aux",
           "*.bbl*",
@@ -148,9 +149,38 @@
         "latex-workshop.view.pdf.viewer": "tab",
         "latex-workshop.latex.autoBuild.cleanAndRetry.enabled": false,
         "latex-workshop.latex.clean.method": "glob",
-        "terminal.integrated.enablePersistentSessions": false,
+        "latex-workshop.hover.preview.enabled": true,
+        "terminal.integrated.enablePersistentSessions": true,
         "ltex.language": "pl-PL",
-        "latex-workshop.hover.preview.enabled": true
+        "latexMacros.macrosList": [
+          {
+              "signature": "\\fg{PATH}{Caption}{Identifier}",
+              "extensions": [
+                  "png",
+                  "jpg"
+              ]
+          },
+          {
+              "signature": "\\fg[width]{PATH}{Caption}{Identifier}",
+              "extensions": [
+                  "png",
+                  "jpg"
+              ]
+          },
+          {
+              "signature": "\\ListingFile{Caption}{Identifier}{PATH}",
+              "extensions": [
+                  "txt",
+                  "js",
+                  "mjs",
+                  "ts",
+                  "mts",
+                  "tsx",
+                  "jsx",
+                  "json"
+              ]
+          }
+      ]
       },
       "extensions": [
         "MaciejWojs.MacroTeX",

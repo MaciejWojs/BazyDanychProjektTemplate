@@ -87,6 +87,10 @@
 {\normalfont\sffamily\bfseries}{\theparagraph}{1em}{}
 
 %komenda do łatwiejszego wstawiania zdjęć
+% Parametr #1 (opcjonalny): Szerokość zdjęcia (domyślnie \textwidth)
+% Parametr #2: Nazwa pliku z rozszerzeniem (np. rys/nazwa-rysunku.png)
+% Parametr #3: Opis rysunku wyświetlany pod rysunkiem
+% Parametr #4: Identyfikator rysunku (do oznaczania zdjęć w tekście)
 \newcommand*{\fg}[4][\textwidth]{
     \begin{figure}[!htb]
         \begin{center}
@@ -97,18 +101,30 @@
     \end{figure}
 }
 
+%komenda do oznaczania elementów w tekście
+% Parametr #1: Typ elementu (rys, lst)
+% Parametr #2: Identyfikator elementu
 \newcommand*{\Oznacz}[2]{
 \ref{#1:#2} (s. \pageref{#1:#2})
 }
 
+%komenda do oznaczania zdjęć w tekście
+% Parametr #1 (opcjonalny): Nazwa typu elementu (domyślnie Rysunek)
+% Parametr #2: Identyfikator rysunku
 \newcommand*{\OznaczZdjecie}[2][Rysunek]{
 #1 \Oznacz{rys}{#2}
 }
-    
+
+%komenda do oznaczania kodu w tekście
+% Parametr #1: Identyfikator kodu
 \newcommand*{\OznaczKod}[1]{
 \Oznacz{lst}{#1}
 }
 
-\newcommand*{\ListingFile}[2]{
-    \lstinputlisting[caption=#1, label={lst:#2}, language=C++]{kod/#2.txt}
+%komenda do wstawiania listingów kodu
+% Parametr #1: Opis listingu wyświetlany pod listingiem
+% Parametr #2: Identyfikator listingu
+% Parametr #3: Ścieżka do pliku z kodem
+\newcommand*{\ListingFile}[3]{
+    \lstinputlisting[caption=#1, label={lst:#2}, language=C++]{#3}
 }
